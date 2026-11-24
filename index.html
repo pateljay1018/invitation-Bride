@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Neil Sathwara & Dr. Ami Darji — God Dhana Invitation</title>
+
+  <!-- WhatsApp / Social Media Rich Preview Card -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pateljay1018.github.io/invitation/" />
+  <meta property="og:title" content="Dr. Neil Sathwara & Dr. Ami Darji — God Dhana Invitation" />
+  <meta property="og:description" content="With the blessings of our elders, you are warmly invited to celebrate the God Dhana Ceremony of Dr. Neil Sathwara & Dr. Ami Darji on 3rd December 2026 at 10:00 AM in Mehdav, Gujarat." />
+  <meta property="og:image" content="https://pateljay1018.github.io/invitation/image%202.jpeg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=10" />
+</head>
+<body>
+
+  <!-- Realistic 3D Flower Petal Shower Canvas -->
+  <canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop preload="auto">
+    <source src="kesariya.mp3.mpeg" type="audio/mpeg" />
+    <source src="kesariya.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Floating Music Control -->
+  <button id="music-toggle" class="music-fab" aria-label="Toggle Background Music">
+    <span>♫</span>
+    <span id="music-label">Music</span>
+  </button>
+
+  <!-- Floating Golden Dust -->
+  <div id="ambient-layer" aria-hidden="true"></div>
+
+  <!-- ROYAL VELVET CURTAIN ENTRANCE -->
+  <div id="curtain-screen" class="curtain-screen">
+    <div class="curtain-panel left-panel"></div>
+    <div class="curtain-panel right-panel"></div>
+
+    <div class="curtain-center">
+      <div class="arch-badge">
+        <span class="sanskrit">|| श्री गणेशाय नमः ||</span>
+        <div class="monogram-crest">
+          <span>N</span>
+          <small>&</small>
+          <span>A</span>
+        </div>
+        <p class="curtain-invite-to">Personal Invitation For</p>
+        <p class="curtain-guest-name" id="curtain-guest-name">Dear Family & Friends</p>
+        <p class="curtain-date">03 • 12 • 2026</p>
+        <button id="enter-btn" class="royal-btn">Open Invitation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVATE HOST LINK GENERATOR (Open with ?host=1) -->
+  <section id="host-panel" class="host-panel" hidden>
+    <div class="host-box">
+      <h3>Host Link Generator (Private)</h3>
+      <p>Type a relative's name to create a personal link where they only see their own name.</p>
+      <div class="host-controls">
+        <input type="text" id="host-guest-input" placeholder="e.g., Rameshbhai Patel & Family" />
+        <button id="gen-copy-btn" class="royal-btn small" type="button">Copy Link</button>
+        <button id="gen-wa-btn" class="outline-gold-btn" type="button">Send on WhatsApp</button>
+      </div>
+      <p id="host-output" class="host-output"></p>
+    </div>
+  </section>
+
+  <!-- MAIN EDITORIAL INVITATION -->
+  <main class="page-wrapper">
+
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+      <div class="hero-backdrop" id="hero-backdrop"></div>
+      <div class="hero-inner reveal">
+        <p class="top-mantra">|| Shree Ganeshay Namah ||</p>
+
+        <div class="guest-welcome-pill">
+          <span>Cordially Inviting</span>
+          <strong id="hero-guest-name">Dear Family & Friends</strong>
+        </div>
+
+        <div class="jharokha-frame">
+          <img
+            src="image 2.jpeg"
+            data-alt-ext="image 2.jpg"
+            alt="Dr. Neil Sathwara and Dr. Ami Darji"
+            class="hero-photo smart-img"
+          />
+        </div>
+
+        <h1 class="couple-title">
+          <span class="first-name">Dr. Neil</span>
+          <span class="surname">Sathwara</span>
+          <span class="ampersand">&</span>
+          <span class="first-name">Dr. Ami</span>
+          <span class="surname">Darji</span>
+        </h1>
+
+        <p class="invite-message">
+          With the blessings of our elders and the love of our families,<br />
+          we warmly invite <strong id="inline-guest-name">you</strong> to grace the auspicious occasion of our
+        </p>
+
+        <div class="event-pill">God Dhana Ceremony</div>
+        <p class="hero-date-line">Thursday, 3rd December 2026  •  10:00 AM Onwards</p>
+      </div>
+    </header>
+
+    <!-- LIVE COUNTDOWN SECTION -->
+    <section class="section countdown-section reveal">
+      <span class="section-kicker">Save The Date</span>
+      <h2 class="section-heading">Counting Every Moment</h2>
+      <div class="ornament-divider"><span>✦</span></div>
+
+      <div class="countdown-wrapper" id="countdown">
+        <div class="count-card">
+          <span class="count-num" id="cd-days">00</span>
+          <span class="count-label">Days</span>
+        </div>
+        <div class="count-card">
+          <span class="count-num" id="cd-hours">00</span>
+          <span class="count-label">Hours</span>
+        </div>
+        <div class="count-card">
+          <span class="count-num" id="cd-minutes">00</span>
+          <span class="count-label">Minutes</span>
+        </div>
+        <div class="count-card">
+          <span class="count-num" id="cd-seconds">00</span>
+          <span class="count-label">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D ROYAL PHOTO SHOWCASE (ALL 9 UNIQUE PHOTOS) -->
+    <section class="section gallery-section reveal">
+      <span class="section-kicker">Captured Moments</span>
+      <h2 class="section-heading">Dr. Neil & Dr. Ami</h2>
+      <div class="ornament-divider"><span>✦</span></div>
+      <p class="section-desc">Swipe or tap the cards • Tap center photo for full screen</p>
+
+      <div class="deck-stage" id="deck-stage">
+        <div class="deck-track" id="deck-track">
+          <article class="deck-card" data-caption="Under the festive lights">
+            <img src="image 1.jpeg" data-alt-ext="image 1.jpg" alt="Photo 1 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">01 / 09</span>
+              <p>Under the festive lights</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Two hearts, one story">
+            <img src="image 2.jpeg" data-alt-ext="image 2.jpg" alt="Photo 2 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">02 / 09</span>
+              <p>Two hearts, one story</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Forever begins with a smile">
+            <img src="image 3.jpeg" data-alt-ext="image 3.jpg" alt="Photo 3 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">03 / 09</span>
+              <p>Forever begins with a smile</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Warm evenings & endless talks">
+            <img src="image 4.jpeg" data-alt-ext="image 4.jpg" alt="Photo 4 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">04 / 09</span>
+              <p>Warm evenings & endless talks</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Walking into our new chapter">
+            <img src="image 5.jpeg" data-alt-ext="image 5.jpg" alt="Photo 5 of Dr. Neil and Dr. Ami" class="smart-img pos-mid" />
+            <div class="deck-caption">
+              <span class="cap-num">05 / 09</span>
+              <p>Walking into our new chapter</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Every moment brighter together">
+            <img src="image 6.jpeg" data-alt-ext="image 6.jpg" alt="Photo 6 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">06 / 09</span>
+              <p>Every moment brighter together</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Laughter, love & togetherness">
+            <img src="image 7.jpeg" data-alt-ext="image 7.jpg" alt="Photo 7 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">07 / 09</span>
+              <p>Laughter, love & togetherness</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Written in destiny">
+            <img src="image 8.jpeg" data-alt-ext="image 8.jpg" alt="Photo 8 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">08 / 09</span>
+              <p>Written in destiny</p>
+            </div>
+          </article>
+
+          <article class="deck-card" data-caption="Counting down to forever">
+            <img src="image 9.jpeg" data-alt-ext="image 9.jpg" alt="Photo 9 of Dr. Neil and Dr. Ami" class="smart-img pos-top" />
+            <div class="deck-caption">
+              <span class="cap-num">09 / 09</span>
+              <p>Counting down to forever</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Navigation Arrows, Counter & Dots -->
+        <div class="deck-controls">
+          <button id="deck-prev" class="deck-nav-btn" aria-label="Previous Photo">←</button>
+          <div class="deck-status">
+            <span id="deck-counter" class="deck-counter">1 / 9</span>
+            <div class="deck-dots" id="deck-dots"></div>
+          </div>
+          <button id="deck-next" class="deck-nav-btn" aria-label="Next Photo">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATE & VENUE DETAILS -->
+    <section class="section details-section reveal">
+      <span class="section-kicker">When & Where</span>
+      <h2 class="section-heading">Ceremony Details</h2>
+      <div class="ornament-divider"><span>✦</span></div>
+
+      <div class="luxury-grid">
+        <div class="glass-card">
+          <span class="card-tag">Date & Day</span>
+          <h3>3rd December 2026</h3>
+          <p>Thursday Morning</p>
+        </div>
+        <div class="glass-card">
+          <span class="card-tag">Time</span>
+          <h3>10:00 AM Onwards</h3>
+          <p>Auspicious God Dhana Morning</p>
+        </div>
+        <div class="glass-card span-2">
+          <span class="card-tag">Venue</span>
+          <h3>Mehdav</h3>
+          <p>Gujarat, India</p>
+          <div class="btn-group">
+            <a
+              href="https://maps.google.com/?q=Mehdav,Gujarat"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="outline-gold-btn"
+            >
+              Get Directions
+            </a>
+            <button id="ics-btn" class="outline-gold-btn" type="button">
+              Add to Calendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWER BLESSINGS (PUSHPA VARSHA) -->
+    <section class="section blessings-section reveal">
+      <span class="section-kicker">Pushpa Varsha</span>
+      <h2 class="section-heading">Shower Your Blessings</h2>
+      <div class="ornament-divider"><span>✦</span></div>
+      <p class="section-desc">Tap below to shower rose & marigold petals upon Dr. Neil & Dr. Ami.</p>
+
+      <button id="bless-btn" class="royal-btn bless-btn" type="button">
+        <svg class="bless-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C9.5 6 7 9.5 7 13a5 5 0 0 0 10 0c0-3.5-2.5-7-5-11zm0 14.5A2.5 2.5 0 0 1 9.5 14c0-1.6 1.1-3.6 2.5-5.6 1.4 2 2.5 4 2.5 5.6a2.5 2.5 0 0 1-2.5 2.5z"/>
+        </svg>
+        Shower Blessings
+      </button>
+
+      <p id="bless-msg" class="bless-msg" aria-live="polite"></p>
+    </section>
+
+ <!-- FOOTER -->
+    <footer class="luxury-footer reveal">
+      <p class="footer-script">Dr. Ami & Dr. Neil</p>
+      <p class="footer-sub">Darji Family  •  Sathwara Family</p>
+
+      <div class="family-card">
+        <span class="family-kicker">With Best Compliments From</span>
+        <div class="family-divider"><span>✦</span></div>
+        <ul class="family-list">
+          <li>Bhagvatiben Manubhai Darji</li>
+          <li>Kamleshkumar Manubhai Darji</li>
+          <li>Geetaben Kamleshkumar Darji</li>
+          <li>Chiragkumar Manubhai Darji</li>
+          <li>Dhruv Kamleshkumar Darji</li>
+          <li>Harsh Kamleshkumar Darji</li>
+          <li>Mahi Chiragkumar Darji</li>
+        </ul>
+      </div>
+
+      <p class="footer-note">Your presence and blessings are the greatest gift to us.</p>
+    </footer>
+  </main>
+
+  <!-- FULLSCREEN PHOTO LIGHTBOX -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightbox-close" class="lightbox-close" aria-label="Close">×</button>
+    <img id="lightbox-img" src="" alt="Full view" />
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <script>
+    // =========================================================
+    // 1. REALISTIC 3D FLOWER PETAL CANVAS ENGINE
+    // =========================================================
+    const petalCanvas = document.getElementById('petal-canvas');
+    const pCtx = petalCanvas.getContext('2d');
+    let activePetals = [];
+    let petalAnimId = null;
+
+    function resizePetalCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      petalCanvas.width = window.innerWidth * dpr;
+      petalCanvas.height = window.innerHeight * dpr;
+      pCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resizePetalCanvas();
+    window.addEventListener('resize', resizePetalCanvas);
+
+    const petalPalettes = [
+      { type: 'rose',     light: '#e03e52', mid: '#a8132b', dark: '#5e0615' },
+      { type: 'rose',     light: '#c92a42', mid: '#8b0d21', dark: '#4a0410' },
+      { type: 'blush',    light: '#f7b2bd', mid: '#d96c80', dark: '#8c2d42' },
+      { type: 'marigold', light: '#ffb703', mid: '#e87a00', dark: '#9c4200' },
+      { type: 'marigold', light: '#ff9e00', mid: '#d95d00', dark: '#802b00' },
+      { type: 'gold',     light: '#fff4c2', mid: '#d4af37', dark: '#8a6b15' }
+    ];
+
+    class RealisticPetal {
+      constructor(delayY = 0) {
+        this.palette = petalPalettes[Math.floor(Math.random() * petalPalettes.length)];
+        this.x = Math.random() * window.innerWidth;
+        this.y = -30 - Math.random() * 260 - delayY;
+        this.size = this.palette.type === 'gold'
+          ? 5 + Math.random() * 6
+          : 11 + Math.random() * 14;
+        this.vy = 1.15 + Math.random() * 1.9;
+        this.vx = (Math.random() - 0.5) * 0.9;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.045;
+        this.flip = Math.random() * Math.PI * 2;
+        this.flipSpeed = 0.025 + Math.random() * 0.045;
+        this.swayPhase = Math.random() * Math.PI * 2;
+        this.swayAmp = 0.4 + Math.random() * 1.1;
+        this.opacity = 0.78 + Math.random() * 0.22;
+      }
+
+      update() {
+        this.swayPhase += 0.02;
+        this.y += this.vy;
+        this.x += this.vx + Math.sin(this.swayPhase) * this.swayAmp;
+        this.angle += this.spin;
+        this.flip += this.flipSpeed;
+
+        if (this.y > window.innerHeight - 120) {
+          this.opacity = Math.max(0, this.opacity - 0.015);
+        }
+      }
+
+      draw(ctx) {
+        if (this.opacity <= 0) return;
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+
+        const scaleX = Math.cos(this.flip);
+        const scaleY = 0.65 + 0.35 * Math.sin(this.flip * 0.7);
+        ctx.scale(scaleX, scaleY);
+        ctx.globalAlpha = this.opacity;
+
+        const s = this.size;
+        const grad = ctx.createRadialGradient(-s * 0.2, -s * 0.25, s * 0.08, 0, 0, s * 1.15);
+        grad.addColorStop(0, this.palette.light);
+        grad.addColorStop(0.55, this.palette.mid);
+        grad.addColorStop(1, this.palette.dark);
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+
+        if (this.palette.type === 'gold') {
+          ctx.moveTo(0, -s);
+          ctx.lineTo(s * 0.75, -s * 0.2);
+          ctx.lineTo(s * 0.4, s * 0.85);
+          ctx.lineTo(-s * 0.65, s * 0.35);
+          ctx.closePath();
+        } else if (this.palette.type === 'marigold') {
+          ctx.moveTo(0, s * 0.9);
+          ctx.bezierCurveTo(-s * 0.75, s * 0.3, -s * 0.65, -s * 0.85, 0, -s);
+          ctx.bezierCurveTo(s * 0.65, -s * 0.85, s * 0.75, s * 0.3, 0, s * 0.9);
+        } else {
+          ctx.moveTo(0, s * 0.85);
+          ctx.bezierCurveTo(-s * 1.15, s * 0.35, -s * 1.05, -s * 0.95, -s * 0.12, -s * 0.82);
+          ctx.quadraticCurveTo(0, -s * 0.62, s * 0.12, -s * 0.82);
+          ctx.bezierCurveTo(s * 1.05, -s * 0.95, s * 1.15, s * 0.35, 0, s * 0.85);
+        }
+
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255, 240, 220, 0.18)';
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    function animatePetals() {
+      pCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (let i = activePetals.length - 1; i >= 0; i--) {
+        const p = activePetals[i];
+        p.update();
+        p.draw(pCtx);
+        if (p.y > window.innerHeight + 50 || p.opacity <= 0) {
+          activePetals.splice(i, 1);
+        }
+      }
+      if (activePetals.length > 0) {
+        petalAnimId = requestAnimationFrame(animatePetals);
+      } else {
+        petalAnimId = null;
+      }
+    }
+
+    function triggerFlowerShower(count = 85) {
+      for (let i = 0; i < count; i++) {
+        activePetals.push(new RealisticPetal(i * 4.5));
+      }
+      if (!petalAnimId) {
+        petalAnimId = requestAnimationFrame(animatePetals);
+      }
+    }
+
+    // =========================================================
+    // 2. BULLETPROOF .JPEG <-> .JPG FALLBACK (EVEN IF ALREADY FAILED)
+    // =========================================================
+    function swapToAltExtension(img) {
+      const altSrc = img.getAttribute('data-alt-ext');
+      if (altSrc && !img.dataset.triedAlt) {
+        img.dataset.triedAlt = 'true';
+        img.src = altSrc;
+        if (img.classList.contains('hero-photo')) {
+          document.getElementById('hero-backdrop').style.backgroundImage = `url('${altSrc}')`;
+        }
+      }
+    }
+
+    document.querySelectorAll('.smart-img').forEach((img) => {
+      img.addEventListener('error', () => swapToAltExtension(img));
+      if (img.complete && img.naturalWidth === 0) {
+        swapToAltExtension(img);
+      }
+    });
+
+    // =========================================================
+    // 3. PERSONALIZE INVITATION (?guest=Name)
+    // =========================================================
+    const params = new URLSearchParams(window.location.search);
+    const rawGuest = params.get('guest');
+    const guestName = rawGuest ? rawGuest.trim() : '';
+
+    if (guestName) {
+      document.getElementById('curtain-guest-name').textContent = guestName;
+      document.getElementById('hero-guest-name').textContent = guestName;
+      document.getElementById('inline-guest-name').textContent = guestName;
+      document.title = `Invitation for ${guestName} — Dr. Neil & Dr. Ami`;
+    }
+
+    // =========================================================
+    // 4. PRIVATE HOST LINK GENERATOR (?host=1)
+    // =========================================================
+    if (params.get('host') === '1') {
+      document.getElementById('host-panel').hidden = false;
+      const hostInput = document.getElementById('host-guest-input');
+      const hostOutput = document.getElementById('host-output');
+
+      function buildGuestLink(name) {
+        const base = window.location.origin + window.location.pathname;
+        return `${base}?guest=${encodeURIComponent(name)}`;
+      }
+
+      document.getElementById('gen-copy-btn').addEventListener('click', async () => {
+        const name = hostInput.value.trim();
+        if (!name) return (hostOutput.textContent = 'Please enter a relative name first.');
+        const link = buildGuestLink(name);
+        try {
+          await navigator.clipboard.writeText(link);
+          hostOutput.textContent = `Copied link for ${name}: ${link}`;
+        } catch {
+          hostOutput.textContent = link;
+        }
+      });
+
+      document.getElementById('gen-wa-btn').addEventListener('click', () => {
+        const name = hostInput.value.trim();
+        if (!name) return (hostOutput.textContent = 'Please enter a relative name first.');
+        const link = buildGuestLink(name);
+        const msg =
+          `|| Shree Ganeshay Namah ||\n\n` +
+          `Dear ${name},\n` +
+          `We warmly invite you to the God Dhana Ceremony of *Dr. Neil Sathwara & Dr. Ami Darji* on *3rd December 2026 at 10:00 AM* in *Mehdav, Gujarat*.\n\n` +
+          `Open your personal invitation here:\n${link}`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+      });
+    }
+
+    // =========================================================
+    // 5. BACKGROUND MUSIC AUTOPLAY + TOGGLE
+    // =========================================================
+    const bgMusic = document.getElementById('bg-music');
+    const musicToggle = document.getElementById('music-toggle');
+    const musicLabel = document.getElementById('music-label');
+    let isPlaying = false;
+
+    function startMusic() {
+      bgMusic.volume = 0.6;
+      const playPromise = bgMusic.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isPlaying = true;
+          musicToggle.classList.add('playing');
+          musicLabel.textContent = 'Pause';
+          removeAutoplayUnlock();
+        }).catch(() => {
+          musicLabel.textContent = 'Play';
+        });
+      }
+    }
+
+    function unlockOnFirstInteraction() {
+      if (!isPlaying) startMusic();
+    }
+
+    function removeAutoplayUnlock() {
+      ['click', 'touchstart', 'pointerdown', 'keydown'].forEach((evt) => {
+        document.removeEventListener(evt, unlockOnFirstInteraction);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', startMusic);
+    window.addEventListener('load', startMusic);
+    ['click', 'touchstart', 'pointerdown', 'keydown'].forEach((evt) => {
+      document.addEventListener(evt, unlockOnFirstInteraction, { once: true });
+    });
+
+    musicToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        musicToggle.classList.remove('playing');
+        musicLabel.textContent = 'Play';
+      } else {
+        startMusic();
+      }
+    });
+
+    // =========================================================
+    // 6. CURTAIN OPENING -> TRIGGERS REALISTIC FLOWER SHOWER
+    // =========================================================
+    const curtain = document.getElementById('curtain-screen');
+    document.getElementById('enter-btn').addEventListener('click', () => {
+      curtain.classList.add('open');
+      if (!isPlaying) startMusic();
+      triggerFlowerShower(95);
+      spawnBurst(20);
+      setTimeout(() => (curtain.style.display = 'none'), 1400);
+    });
+
+    // =========================================================
+    // 7. SHOWER BLESSINGS BUTTON
+    // =========================================================
+    const blessBtn = document.getElementById('bless-btn');
+    const blessMsg = document.getElementById('bless-msg');
+
+    blessBtn.addEventListener('click', () => {
+      triggerFlowerShower(75);
+      blessBtn.classList.add('blessed');
+      setTimeout(() => blessBtn.classList.remove('blessed'), 350);
+
+      blessMsg.textContent = guestName
+        ? `Thank you for your warm blessings, ${guestName}!`
+        : 'Thank you for showering your warm blessings on Dr. Neil & Dr. Ami!';
+      blessMsg.classList.add('show');
+    });
+
+    // =========================================================
+    // 8. AMBIENT GOLDEN DUST
+    // =========================================================
+    const ambientLayer = document.getElementById('ambient-layer');
+    function createParticle(fast = false) {
+      const dot = document.createElement('span');
+      dot.className = 'gold-dust';
+      const size = 2.5 + Math.random() * 4.5;
+      dot.style.width = size + 'px';
+      dot.style.height = size + 'px';
+      dot.style.left = Math.random() * 100 + 'vw';
+      dot.style.animationDuration = (fast ? 3 + Math.random() * 3 : 7 + Math.random() * 7) + 's';
+      dot.style.opacity = (0.3 + Math.random() * 0.6).toFixed(2);
+      ambientLayer.appendChild(dot);
+      setTimeout(() => dot.remove(), 14000);
+    }
+    function spawnBurst(n) {
+      for (let i = 0; i < n; i++) setTimeout(() => createParticle(true), i * 40);
+    }
+    setInterval(() => createParticle(false), 550);
+
+    // =========================================================
+    // 9. LIVE COUNTDOWN (3RD DECEMBER 2026, 10:00 AM IST)
+    // =========================================================
+    const targetTime = new Date('2026-12-03T10:00:00+05:30').getTime();
+    function tickCountdown() {
+      const diff = Math.max(0, targetTime - Date.now());
+      document.getElementById('cd-days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(Math.floor((diff / 3600000) % 24)).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(Math.floor((diff / 60000) % 60)).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+
+    // =========================================================
+    // 10. 3D ROYAL PHOTO DECK (ALL 9 UNIQUE PHOTOS, NO OVERLAP)
+    // =========================================================
+    const cards = Array.from(document.querySelectorAll('.deck-card'));
+    const dotsContainer = document.getElementById('deck-dots');
+    const deckCounter = document.getElementById('deck-counter');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCap = document.getElementById('lightbox-caption');
+    let currentIdx = 0; // Starts cleanly on Photo 1 of 9
+    let autoSlideTimer;
+
+    cards.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.className = 'deck-dot';
+      dot.setAttribute('aria-label', `Photo ${idx + 1}`);
+      dot.addEventListener('click', () => {
+        currentIdx = idx;
+        updateDeck();
+        resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    });
+    const dots = Array.from(dotsContainer.querySelectorAll('.deck-dot'));
+
+    function updateDeck() {
+      const total = cards.length;
+      deckCounter.textContent = `${currentIdx + 1} / ${total}`;
+
+      cards.forEach((card, i) => {
+        card.className = 'deck-card';
+        const offset = (i - currentIdx + total) % total;
+        if (offset === 0) card.classList.add('active');
+        else if (offset === 1) card.classList.add('next');
+        else if (offset === total - 1) card.classList.add('prev');
+        else if (offset === 2) card.classList.add('far-next');
+        else if (offset === total - 2) card.classList.add('far-prev');
+        else card.classList.add('hidden-card');
+      });
+
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
+    }
+
+    function nextCard() {
+      currentIdx = (currentIdx + 1) % cards.length;
+      updateDeck();
+    }
+
+    function prevCard() {
+      currentIdx = (currentIdx - 1 + cards.length) % cards.length;
+      updateDeck();
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(nextCard, 4200);
+    }
+
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', () => {
+        if (idx === currentIdx) {
+          lbImg.src = card.querySelector('img').src;
+          lbCap.textContent = card.dataset.caption || '';
+          lightbox.classList.add('active');
+          lightbox.setAttribute('aria-hidden', 'false');
+        } else {
+          currentIdx = idx;
+          updateDeck();
+          resetAutoSlide();
+        }
+      });
+    });
+
+    document.getElementById('deck-next').addEventListener('click', () => { nextCard(); resetAutoSlide(); });
+    document.getElementById('deck-prev').addEventListener('click', () => { prevCard(); resetAutoSlide(); });
+
+    let touchStartX = 0;
+    const deckStage = document.getElementById('deck-stage');
+    deckStage.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    deckStage.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        diff < 0 ? nextCard() : prevCard();
+        resetAutoSlide();
+      }
+    }, { passive: true });
+
+    updateDeck();
+    resetAutoSlide();
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => e.target === lightbox && closeLightbox());
+
+    // =========================================================
+    // 11. ADD TO CALENDAR (.ICS — 3RD DEC 2026, 10:00 AM IST)
+    // =========================================================
+    document.getElementById('ics-btn').addEventListener('click', () => {
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Dr. Neil & Dr. Ami God Dhana//EN',
+        'BEGIN:VEVENT',
+        'DTSTART:20261203T043000Z',
+        'DTEND:20261203T083000Z',
+        'SUMMARY:God Dhana Ceremony — Dr. Neil Sathwara & Dr. Ami Darji',
+        'DESCRIPTION:God Dhana Ceremony of Dr. Neil Sathwara & Dr. Ami Darji.',
+        'LOCATION:Mehdav, Gujarat',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Dr-Neil-and-Dr-Ami-God-Dhana.ics';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // =========================================================
+    // 12. SCROLL REVEAL
+    // =========================================================
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('in-view')),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,1018 @@
+/* =========================================================
+   DR. NEIL SATHWARA & DR. AMI DARJI — ROYAL 9-PHOTO DECK
+   ========================================================= */
+
+:root {
+  --bg-obsidian: #061414;
+  --bg-glass: rgba(11, 34, 34, 0.65);
+  --gold-bright: #f5df98;
+  --gold-main: #d4af37;
+  --gold-muted: #9a7b2c;
+  --ivory: #f9f4e8;
+  --text-soft: #c9d1cb;
+  --border-gold: rgba(212, 175, 55, 0.34);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-obsidian);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(16, 68, 66, 0.55) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(12, 52, 50, 0.6) 0%, transparent 55%);
+  color: var(--ivory);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   REALISTIC 3D FLOWER PETAL CANVAS
+   ========================================================= */
+#petal-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 150;
+}
+
+/* =========================================================
+   FLOATING MUSIC BUTTON
+   ========================================================= */
+.music-fab {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--gold-main);
+  background: rgba(6, 20, 20, 0.88);
+  color: var(--gold-bright);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.music-fab.playing {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.music-fab:hover { transform: translateY(-2px); }
+
+/* =========================================================
+   AMBIENT GOLDEN DUST
+   ========================================================= */
+#ambient-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+  overflow: hidden;
+}
+
+.gold-dust {
+  position: absolute;
+  top: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff7d6, var(--gold-main));
+  box-shadow: 0 0 8px var(--gold-bright);
+  animation: floatDown linear forwards;
+}
+
+@keyframes floatDown {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(50vh) translateX(18px); }
+  100% { transform: translateY(105vh) translateX(-18px); opacity: 0; }
+}
+
+/* =========================================================
+   ROYAL CURTAIN ENTRANCE
+   ========================================================= */
+.curtain-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(160deg, #0b2928 0%, #041010 100%);
+  transition: transform 1.3s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 1;
+}
+
+.left-panel { left: 0; border-right: 1px solid var(--border-gold); }
+.right-panel { right: 0; border-left: 1px solid var(--border-gold); }
+
+.curtain-screen.open .left-panel { transform: translateX(-102%); }
+.curtain-screen.open .right-panel { transform: translateX(102%); }
+
+.curtain-center {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.curtain-screen.open .curtain-center {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.arch-badge {
+  width: min(340px, 88vw);
+  padding: 2.6rem 1.8rem 2.2rem;
+  text-align: center;
+  border: 1px solid var(--border-gold);
+  border-radius: 175px 175px 18px 18px;
+  background: rgba(6, 20, 20, 0.9);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), inset 0 0 0 6px rgba(212, 175, 55, 0.06);
+}
+
+.sanskrit {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  color: var(--gold-bright);
+  margin-bottom: 1rem;
+}
+
+.monogram-crest {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 3.3rem;
+  color: var(--gold-bright);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.monogram-crest small {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.3rem;
+  color: var(--gold-main);
+  margin: 0 0.2rem;
+}
+
+.curtain-invite-to {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--text-soft);
+}
+
+.curtain-guest-name {
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-size: 1.45rem;
+  color: var(--gold-bright);
+  margin: 0.25rem 0 0.9rem;
+}
+
+.curtain-date {
+  font-size: 0.76rem;
+  letter-spacing: 4px;
+  color: var(--text-soft);
+  margin-bottom: 1.6rem;
+}
+
+/* =========================================================
+   HOST LINK GENERATOR PANEL
+   ========================================================= */
+.host-panel {
+  position: relative;
+  z-index: 60;
+  background: #0d2b2a;
+  border-bottom: 1px solid var(--gold-main);
+  padding: 1.5rem 1.25rem;
+}
+
+.host-box { max-width: 780px; margin: 0 auto; text-align: center; }
+.host-box h3 { font-family: 'Bodoni Moda', serif; color: var(--gold-bright); margin-bottom: 0.3rem; }
+.host-box p { font-size: 0.84rem; color: var(--text-soft); margin-bottom: 1rem; }
+
+.host-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.host-controls input {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-gold);
+  background: rgba(6, 20, 20, 0.9);
+  color: var(--ivory);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.host-output {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--gold-bright);
+  word-break: break-all;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.royal-btn {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-main), var(--gold-muted));
+  color: #071717;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.royal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.45);
+}
+
+.royal-btn.small { padding: 0.75rem 1.6rem; font-size: 0.75rem; }
+
+.outline-gold-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  color: var(--gold-bright);
+  border: 1px solid var(--border-gold);
+  padding: 0.72rem 1.6rem;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.outline-gold-btn:hover {
+  background: rgba(212, 175, 55, 0.14);
+  border-color: var(--gold-bright);
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 1.25rem 3.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  background: url('image 2.jpeg') center/cover no-repeat;
+  filter: blur(18px) brightness(0.24) saturate(1.1);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.hero-inner { position: relative; z-index: 2; max-width: 720px; width: 100%; }
+
+.top-mantra {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 1.1rem;
+}
+
+.guest-welcome-pill {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.7rem 1.8rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-gold);
+  background: rgba(6, 20, 20, 0.65);
+  backdrop-filter: blur(8px);
+  margin-bottom: 1.8rem;
+}
+
+.guest-welcome-pill span {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.guest-welcome-pill strong {
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.45rem;
+  color: var(--gold-bright);
+}
+
+.jharokha-frame {
+  width: min(300px, 76vw);
+  height: min(400px, 98vw);
+  margin: 0 auto 2.2rem;
+  border-radius: 160px 160px 16px 16px;
+  padding: 8px;
+  border: 1.5px solid var(--gold-main);
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.22), rgba(6, 20, 20, 0.5));
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 152px 152px 10px 10px;
+  display: block;
+}
+
+.couple-title {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35rem 0.7rem;
+  margin-bottom: 1.1rem;
+}
+
+.first-name {
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  background: linear-gradient(90deg, #d4af37, #fff1c2, #d4af37);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 5s linear infinite;
+  line-height: 1.05;
+}
+
+.surname {
+  font-size: clamp(0.95rem, 2.6vw, 1.25rem);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-soft);
+}
+
+.ampersand {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(2.8rem, 7vw, 4rem);
+  color: var(--gold-bright);
+  width: 100%;
+  line-height: 0.7;
+  margin: 0.25rem 0;
+}
+
+@keyframes goldShimmer { to { background-position: 200% center; } }
+
+.invite-message {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+.invite-message strong { color: var(--gold-bright); font-weight: 500; }
+
+.event-pill {
+  display: inline-block;
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--gold-bright);
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 0.35rem 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-date-line {
+  font-size: 0.88rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+
+/* =========================================================
+   SECTIONS COMMON
+   ========================================================= */
+.section {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem;
+  text-align: center;
+}
+
+.section-kicker {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  color: var(--gold-main);
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--ivory);
+  line-height: 1.15;
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 1rem auto 2.2rem;
+  max-width: 200px;
+  color: var(--gold-main);
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+}
+
+.section-desc {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin-top: -1.4rem;
+  margin-bottom: 2.2rem;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   LIVE COUNTDOWN
+   ========================================================= */
+.countdown-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.count-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+  padding: 1.5rem 0.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.count-num {
+  display: block;
+  font-family: 'Bodoni Moda', serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  color: var(--gold-bright);
+  line-height: 1.1;
+}
+
+.count-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  color: var(--text-soft);
+}
+
+/* =========================================================
+   3D ROYAL COVERFLOW PHOTO DECK (9 PHOTOS, NO OVERLAP)
+   ========================================================= */
+.deck-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.deck-track {
+  position: relative;
+  height: 460px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hidden by default so non-visible cards never overlap or repeat */
+.deck-card {
+  position: absolute;
+  width: 310px;
+  height: 420px;
+  border-radius: 155px 155px 20px 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-gold);
+  background: #041010;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) scale(0.5);
+  z-index: 1;
+  transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease, filter 0.65s ease, border-color 0.5s ease;
+  user-select: none;
+}
+
+.deck-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.deck-card img.pos-top { object-position: center 18%; }
+.deck-card img.pos-mid { object-position: center 42%; }
+
+.deck-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2.2rem 1.2rem 1rem;
+  background: linear-gradient(to top, rgba(4, 16, 16, 0.94) 10%, transparent 100%);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.deck-caption .cap-num {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--gold-main);
+  margin-bottom: 0.15rem;
+}
+
+.deck-caption p {
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold-bright);
+}
+
+.deck-card.active {
+  z-index: 5;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0) scale(1) rotateY(0deg);
+  filter: brightness(1.03);
+  border-color: var(--gold-bright);
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.8), 0 0 32px rgba(212, 175, 55, 0.22);
+}
+
+.deck-card.active .deck-caption { opacity: 1; transform: translateY(0); }
+
+.deck-card.prev {
+  z-index: 4;
+  opacity: 0.72;
+  pointer-events: auto;
+  transform: translateX(-230px) scale(0.82) rotateY(22deg);
+  filter: brightness(0.65);
+}
+
+.deck-card.next {
+  z-index: 4;
+  opacity: 0.72;
+  pointer-events: auto;
+  transform: translateX(230px) scale(0.82) rotateY(-22deg);
+  filter: brightness(0.65);
+}
+
+.deck-card.far-prev {
+  z-index: 2;
+  opacity: 0.28;
+  pointer-events: auto;
+  transform: translateX(-410px) scale(0.66) rotateY(32deg);
+  filter: brightness(0.45);
+}
+
+.deck-card.far-next {
+  z-index: 2;
+  opacity: 0.28;
+  pointer-events: auto;
+  transform: translateX(410px) scale(0.66) rotateY(-32deg);
+  filter: brightness(0.45);
+}
+
+.deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.6rem;
+}
+
+.deck-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.deck-counter {
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  color: var(--gold-bright);
+}
+
+.deck-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: var(--bg-glass);
+  color: var(--gold-bright);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.deck-nav-btn:hover { background: rgba(212, 175, 55, 0.2); transform: scale(1.06); }
+
+.deck-dots { display: flex; gap: 0.45rem; }
+
+.deck-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(212, 175, 55, 0.3);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.deck-dot.active { width: 22px; background: var(--gold-bright); }
+
+/* =========================================================
+   DETAILS, BLESSINGS, FOOTER & LIGHTBOX
+   ========================================================= */
+.luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+}
+
+.glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 2rem 1.4rem;
+  backdrop-filter: blur(12px);
+}
+
+.glass-card.span-2 { grid-column: 1 / -1; }
+
+.card-tag {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--gold-main);
+  margin-bottom: 0.5rem;
+}
+
+.glass-card h3 {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 0.25rem;
+}
+
+.glass-card p { font-size: 0.88rem; color: var(--text-soft); }
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1.4rem;
+}
+
+.bless-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  padding: 1rem 2.4rem;
+}
+
+.bless-btn.blessed { transform: scale(0.95); }
+
+.bless-msg {
+  margin-top: 1.4rem;
+  min-height: 1.6rem;
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--gold-bright);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.bless-msg.show { opacity: 1; transform: translateY(0); }
+
+.luxury-footer {
+  text-align: center;
+  padding: 3.5rem 1.25rem 5rem;
+  border-top: 1px solid var(--border-gold);
+}
+
+.footer-script {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3.2rem;
+  color: var(--gold-bright);
+  line-height: 1.1;
+}
+
+.footer-sub {
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 0.6rem;
+}
+
+.footer-note { font-size: 0.84rem; color: var(--text-soft); }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(3, 10, 10, 0.94);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  border: 1px solid var(--border-gold);
+  object-fit: contain;
+}
+
+.lightbox p {
+  margin-top: 1rem;
+  font-family: 'Bodoni Moda', serif;
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--gold-bright);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* =========================================================
+   MOBILE / PHONE COMPATIBILITY
+   ========================================================= */
+@media (max-width: 768px) {
+  .arch-badge { width: 88vw; padding: 2rem 1.25rem 1.8rem; }
+  .monogram-crest { font-size: 2.7rem; }
+  .curtain-guest-name { font-size: 1.25rem; }
+
+  .hero-section { padding: 3rem 1rem 2.5rem; min-height: auto; }
+  .jharokha-frame { width: 72vw; max-width: 260px; height: 92vw; max-height: 340px; margin-bottom: 1.5rem; }
+  .guest-welcome-pill { padding: 0.55rem 1.25rem; margin-bottom: 1.4rem; }
+  .guest-welcome-pill strong { font-size: 1.2rem; }
+  .invite-message { font-size: 0.85rem; padding: 0 0.4rem; }
+  .hero-date-line { font-size: 0.78rem; letter-spacing: 1.2px; }
+
+  .section { padding: 3rem 1rem; }
+
+  .countdown-wrapper { gap: 0.5rem; }
+  .count-card { padding: 1rem 0.25rem; border-radius: 12px; }
+  .count-num { font-size: 1.65rem; }
+  .count-label { font-size: 0.6rem; letter-spacing: 1px; }
+
+  .deck-track { height: 390px; }
+  .deck-card { width: 250px; height: 350px; border-radius: 125px 125px 18px 18px; }
+  .deck-card.prev { transform: translateX(-135px) scale(0.8) rotateY(18deg); }
+  .deck-card.next { transform: translateX(135px) scale(0.8) rotateY(-18deg); }
+  .deck-card.far-prev, .deck-card.far-next { opacity: 0; pointer-events: none; }
+
+  .luxury-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+  .glass-card { padding: 1.5rem 1.1rem; }
+  .glass-card h3 { font-size: 1.3rem; }
+
+  .btn-group { flex-direction: column; align-items: stretch; }
+  .btn-group a, .btn-group button { width: 100%; text-align: center; }
+
+  .music-fab { bottom: 0.9rem; right: 0.9rem; padding: 0.55rem 0.95rem; font-size: 0.7rem; }
+  .luxury-footer { padding: 2.5rem 1rem 4.5rem; }
+  .footer-script { font-size: 2.6rem; }
+}
+
+/* =========================================================
+   FAMILY MEMBERS LIST (FOOTER)
+   ========================================================= */
+.family-card {
+  max-width: 720px;
+  margin: 1.8rem auto 1.6rem;
+  padding: 1.8rem 1.4rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-gold);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+}
+
+.family-kicker {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold-main);
+}
+
+.family-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 160px;
+  margin: 0.65rem auto 1.25rem;
+  color: var(--gold-main);
+  font-size: 0.85rem;
+}
+
+.family-divider::before,
+.family-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+}
+
+.family-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 1.5rem;
+  text-align: center;
+}
+
+.family-list li {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.05rem;
+  color: var(--ivory);
+  letter-spacing: 0.3px;
+  padding: 0.35rem 0.4rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+/* Remove bottom line on the final row for even lists (8 names) */
+.family-list li:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+/* Keep bottom line on the 6th name when there are 7 names */
+.family-list li:nth-last-child(2):nth-child(even) {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+/* Center the 7th (last) name on the 4th line */
+.family-list li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .family-card {
+    padding: 1.4rem 1rem;
+    margin: 1.4rem auto 1.3rem;
+  }
+
+  .family-list {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .family-list li {
+    font-size: 0.98rem;
+  }
+
+  .family-list li:nth-last-child(2) {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+  }
+
+  .family-list li:last-child,
+  .family-list li:last-child:nth-child(odd) {
+    max-width: 100%;
+    border-bottom: none;
+  }
+}
+
+.family-list li:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+@media (max-width: 640px) {
+  .family-card {
+    padding: 1.4rem 1rem;
+    margin: 1.4rem auto 1.3rem;
+  }
+
+  .family-list {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .family-list li {
+    font-size: 0.98rem;
+  }
+
+  .family-list li:nth-last-child(2) {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+  }
+
+  .family-list li:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Centered Elder Row for 7-Member Family Deck */
+.family-list li.featured-elder {
+  grid-column: 1 / -1;
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.15rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+@media (max-width: 640px) {
+  .family-list li.featured-elder {
+    font-size: 1.05rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+}
